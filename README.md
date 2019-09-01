@@ -1,7 +1,7 @@
 # Lumina
 Display movies using the OMDB api and add/remove favourites if authenticated
 
-<b>View lumina.pdf for detailed description and screenshots</b> :page_facing_up:
+[View lumina.pdf for detailed description and screenshots :page_facing_up:](https://github.com/A7xSV/Lumina/blob/master/lumina.pdf)
 
 ## File Structure
 |  Name  | Description |
