@@ -37,7 +37,7 @@ Navigate to backend directory <br>
 `cd backend` <br><br>
 Install dependencies <br>
 `npm install`<br><br>
-Start server or optionally, start server using nodemon to watch file for changes
+Start server or optionally, start server using nodemon to watch file for changes <br>
 `node index.js` OR `npm run start:server` <br><br>
 Create table users by navigating to the below URL on a browser (make a GET request) <br>
 `http://localhost:3000/createtable?tableName=users` <br><br>
