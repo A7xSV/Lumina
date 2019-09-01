@@ -10,7 +10,7 @@ Display movies using the OMDB api and add/remove favourites if authenticated
 | [backend](https://github.com/A7xSV/Lumina/blob/master/backend) | Backend of the application in Node.js |
 
 ## Setup Instructions
-Clone this repository and follow the steps below after navigating into folder Lumina (cloned) to setup the local backend and frontend servers:-
+Clone (or download) this repository and follow the steps below after navigating into folder Lumina (cloned) to setup the local backend and frontend servers:-
 
 ### Pre-requisites
 Install Node.js - https://nodejs.org/en/ <br>
