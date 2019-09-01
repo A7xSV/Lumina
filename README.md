@@ -44,6 +44,8 @@ Create table users by navigating to the below URL on a browser <br>
 Insert intial users <br>
 `http://localhost:3000/insertInitial` <br><br>
 
+<b>Keep the Node.js server running before starting Angular server</b>
+
 
 ### Setup Angular frontend
 Navigate to lumina-test directory <br>
