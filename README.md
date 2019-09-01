@@ -30,6 +30,8 @@ Enter mysql and input password 'password' or as set when prompted <br>
 Create database luminaTest (accessed by Node.js backend) <br>
 `CREATE DATABASE luminaTest` <br><br>
 
+<b>Make sure the SQL server is running before starting Node.js server</b>
+
 ## Setup Node.js Backend
 Navigate to backend directory <br>
 `cd backend` <br><br>
@@ -44,7 +46,7 @@ Create table users by navigating to the below URL on a browser (make a GET reque
 Insert intial users (GET request) <br>
 `http://localhost:3000/insertInitial` <br><br>
 
-<b>Keep the Node.js server running before starting Angular server</b>
+<b>Make sure the Node.js server is running before starting Angular server</b>
 
 
 ## Setup Angular frontend
