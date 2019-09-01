@@ -1,0 +1,67 @@
+<mat-tab-group mat-align-tabs="center">
+    <mat-tab label="LOGIN">
+        <mat-card class="center-lock">
+            <div class="card-wrapper">
+                <form [formGroup]="loginFormGroup" (ngSubmit)="onLogin()">
+                    <mat-form-field class="almost-full-width">
+                        <input type="email" formControlName="email" matInput placeholder="Email" required>
+                        <mat-error>Please enter a valid email</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="almost-full-width top-gap">
+                        <input type="password" formControlName="password" matInput placeholder="Password" [type]="hide ? 'password' : 'text'" required>
+                        <mat-error>Please enter your password</mat-error>
+                        <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+                        </button>
+                    </mat-form-field>
+                    <button [disabled]="loginFormGroup.invalid" type="submit" class="sign-in almost-full-width" mat-stroked-button>LOGIN</button>
+                </form>
+            </div>
+            <mat-progress-bar *ngIf="showLoader" mode="indeterminate"></mat-progress-bar>
+        </mat-card>
+    </mat-tab>
+    <mat-tab label="REGISTER">
+        <mat-card class="center-lock">
+            <div class="card-wrapper">
+                <form [formGroup]="signupFormGroup" (ngSubmit)="onSignup()">
+                    <mat-form-field class="almost-full-width">
+                        <input formControlName="firstName" type="text" matInput placeholder="First Name" required>
+                        <mat-error>Please enter your first name</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="almost-full-width top-gap">
+                        <input formControlName="lastName" type="text" matInput placeholder="Last Name" required>
+                        <mat-error>Please enter your last name</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="almost-full-width top-gap">
+                        <input formControlName="email" type="email" matInput placeholder="Email" required>
+                        <mat-error>Please enter a valid email</mat-error>
+                    </mat-form-field>
+        
+                    <div class="almost-full-width center-div">
+                        <mat-form-field class="full-width top-gap">
+                            <input formControlName="password" type="password" matInput #passwordWithValidation [type]="hide ? 'password' : 'text'" required placeholder="Password" maxlength="25" (focus)="showConditions = true">
+                            <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+                            </button>
+                            <mat-hint align="end" aria-live="polite">
+                                {{ passwordWithValidation.value.length }} / 25
+                            </mat-hint>
+                            <mat-error *ngIf="passwordComponentWithValidation.passwordFormControl.hasError('required')">
+                                Password is required
+                            </mat-error>
+                            <mat-error *ngIf="passwordComponentWithValidation.passwordFormControl.hasError('pattern')">
+                                Password is not valid
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-password-strength #passwordComponentWithValidation (onStrengthChanged)="onStrengthChanged($event)" [password]="passwordWithValidation.value"></mat-password-strength>
+                        <!--Password's strength info-->
+                        <mat-password-strength-info *ngIf="showConditions" [passwordComponent]="passwordComponentWithValidation"></mat-password-strength-info>
+                    </div>
+        
+                    <button [disabled]="signupFormGroup.invalid" type="submit" class="sign-up almost-full-width" mat-stroked-button>REGISTER</button>
+                </form>
+            </div>
+            <mat-progress-bar *ngIf="showLoader" mode="indeterminate"></mat-progress-bar>
+        </mat-card>
+    </mat-tab>
+</mat-tab-group>

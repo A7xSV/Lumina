@@ -1,0 +1,37 @@
+<mat-spinner *ngIf="showLoader"></mat-spinner>
+<div *ngIf="!showLoader" class="movies-div">
+    <mat-card class="movie-card" *ngFor="let movie of movies">
+        <mat-card-title>
+            {{ movie.Title }}
+        </mat-card-title>
+        <mat-card-subtitle>
+            IMDb rating: {{ movie.imdbRating }}
+        </mat-card-subtitle>
+        <img mat-card-image *ngIf="movie.Poster != 'N/A'" src="{{ movie.Poster }}" alt="Movie Poster" width="100" height="400">
+        <img mat-card-image *ngIf="movie.Poster == 'N/A'" src="../../assets/location.jpg" alt="Movie Poster" width="100" height="400">
+        <mat-card-content>
+            <div class="movie-description">
+                {{ movie.Plot }}
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <div class="action-bar">
+                <button *ngIf="!isLiked(movie)" (click)="toggleLike(movie, false)" mat-icon-button>
+                    <mat-icon>favorite_border</mat-icon>
+                </button>
+                <button *ngIf="isLiked(movie)" (click)="toggleLike(movie, true)" mat-icon-button color="accent">
+                    <mat-icon>favorite</mat-icon>
+                </button>
+                <span class="spacer"></span>
+                <button mat-raised-button (click)="onViewMore(movie)">VIEW TRAILER</button>
+            </div>
+        </mat-card-actions>
+    </mat-card>
+
+    <mat-card class="movie-card" *ngIf="movies.length == 0">
+        <mat-card-title>
+            No Favourite Movies
+        </mat-card-title>
+        <img mat-card-image src="../../assets/location.jpg" alt="Movie Poster" width="100" height="400">
+    </mat-card>
+</div>
