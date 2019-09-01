@@ -23,7 +23,7 @@ Install using brew <br>
 `brew install mysql` <br><br>
 Start mysql <br>
 `brew services start mysql` <br><br>
-Set username and password <br>
+Set username and password as 'root' and 'password' as used in Node.js connection <br>
 `mysqladmin -u root password 'password'` <br><br>
 Enter mysql and input password 'password' or as set when prompted <br>
 `mysql -u root -p` <br><br>
